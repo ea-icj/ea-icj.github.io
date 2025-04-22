@@ -1,0 +1,403 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Kronecker and Moment Cones</title>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/three.js/r128/three.min.js"></script>
+<script src="https://polyfill.io/v3/polyfill.min.js?features=es6"></script>
+<script id="MathJax-script" async src="https://cdn.jsdelivr.net/npm/mathjax@3/es5/tex-mml-chtml.js"></script>
+
+    <style>
+        p {
+    width: 125%;
+    max-width: 1500px;
+    text-align: justify;
+}
+       /* Ajustement pour le corps du document */
+body {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    width: 100%;
+    padding: 0 20px; /* Ajout d'un peu de padding horizontal */
+    box-sizing: border-box; /* Inclut padding dans la largeur */
+}
+        h1 {
+            margin-top: 20px;
+            font-size: 28px;
+        }
+
+       /* Ajustement spécifique pour les formules mathématiques */
+.MathJax_Display {
+    overflow-x: auto; /* Permet le défilement horizontal pour les formules longues */
+    max-width: 100%; /* Limite la largeur à celle du conteneur */
+}
+
+/* Ajustement du conteneur principal */
+.main-container {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    width: 100%;
+}
+       /* Ajustements pour la disposition des éléments */
+.drawings {
+    display: flex;
+    justify-content: center;
+    align-items: center; /* Aligne les éléments verticalement */
+    gap: 30px;
+    margin: -40px 0; /* Augmente la marge pour créer plus d'espace */
+}
+        .polytope {
+            background-color: #007bff;
+            color: white;
+            border-radius: 10px;
+        }
+
+        /* Ajustements pour le diagramme */
+.diagramme {
+    width: 100px;
+    height: 50px;
+    display: grid;
+    grid-template-columns: repeat(4, 20px);
+    grid-template-rows: repeat(4, 20px);
+    gap: 2px;
+    position: relative; /* Permet un positionnement relatif */
+    top: 0; /* Réinitialise la position */
+    left: 0; /* Réinitialise la position */
+    transform: rotate(225deg);
+}
+
+        .diagramme div {
+            width: 20px;
+            height: 20px;
+            background-color: rgba(255, 0, 0, 0.7);
+            border: 1px solid black;
+        }
+        .diagramme div.empty {
+            background-color: transparent;
+            border: none;
+        }
+        canvas {
+            display: block;
+            top: 30px;
+            left: 50px;
+        }
+        .ecran {
+            text-align: center;
+            width: 200px;
+            height: 120px;
+            background-color: black;
+            color: lime;
+            font-family: monospace;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            margin-top: 20px;
+        }
+
+       /* Ajustements pour l'ordinateur et l'écran */
+.ordinateur {
+    position: relative; /* Permet un positionnement relatif */
+    top: 0; /* Réinitialise la position */
+    left: 0; /* Réinitialise la position */
+    width: 200px;
+    height: 150px;
+    background-color: #222;
+    border-radius: 10px;
+    box-shadow: 3px 3px 8px rgba(0, 0, 0, 0.5);
+    margin-top: 20px; /* Ajoute de l'espace au-dessus */
+}
+      /* Ajustements pour l'écran */
+.ecran {
+    position: relative; /* Permet un positionnement relatif */
+    top: 10px; /* Ajuste la position à l'intérieur de l'ordinateur */
+    left: 10px; /* Ajuste la position à l'intérieur de l'ordinateur */
+    width: 180px;
+    height: 80px;
+    background-color: black;
+    color: lime;
+    font-family: monospace;
+    padding: 5px;
+    display: flex;
+    align-items: center;
+    justify-content: left;
+}
+        .ecran::before {
+            content: "print('Kron')\a for i in range(3):";
+            white-space: pre;
+            display: block;
+}
+/* Ajustements spécifiques pour le polytope */
+#polytopeCanvas {
+    display: block;
+    margin: 0; /* Supprime les marges par défaut */
+    position: relative; /* Permet un positionnement relatif */
+    top: 0; /* Réinitialise la position */
+    left: 0; /* Réinitialise la position */
+}
+
+
+        hr {
+            margin: 20px auto;
+            width: 80%;
+            border: 1px solid gray;
+        }
+
+        /* Centrage horizontal du contenu */
+.explanatory-text {
+    font-size: 16px;
+    color: #333;
+    width: 80%; /* Augmentation de la largeur */
+    margin: 0 auto; /* Centrage automatique */
+    text-align: center; /* Centre le texte */
+}
+
+.explanatory-text p {
+    width: 100%; /* Limite la largeur du texte */
+    max-width: 800px; /* Limite la largeur maximale */
+    margin: 0 auto; /* Centrage automatique */
+    text-align: justify; /* Justifie le texte pour une meilleure lecture */
+}
+
+        /* Boutons */
+        /* Centrage des boutons */
+.button-container {
+    margin: 20px auto; /* Centrage automatique */
+    text-align: center; /* Centre les boutons */
+    width: 80%; /* Largeur contrôlée */
+}
+
+        .button-container button {
+            background-color: #007bff;
+            color: white;
+            border: none;
+            padding: 10px 20px;
+            margin: 5px;
+            cursor: pointer;
+            font-size: 16px;
+            border-radius: 5px;
+        }
+
+        .button-container button:hover {
+            background-color: #0056b3;
+        }
+
+      /* Ajustement des logos */
+.logos {
+    display: flex; /* Utilisation de flexbox pour contrôler l'espacement */
+    justify-content: center; /* Centrage horizontal */
+    align-items: center; /* Alignement vertical au centre */
+    gap: 40px; /* Augmentation de l'espacement entre les logos */
+    margin: 40px auto; /* Centrage automatique avec marge verticale */
+    width: 80%; /* Largeur contrôlée */
+}
+
+.logos img {
+    height: 80px; /* Hauteur fixe pour tous les logos */
+    width: auto; /* Largeur automatique pour préserver les proportions */
+    max-width: 150px; /* Largeur maximale pour éviter des logos trop larges */
+}
+        /* Ajustement du contenu affiché par les boutons */
+.content {
+    margin: 20px auto; /* Centrage automatique */
+    padding: 20px;
+    background-color: white;
+    border-radius: 5px;
+    box-shadow: 0px 0px 10px rgba(0, 0, 0, 0.1);
+    max-width: 800px;
+    width: 80%; /* Largeur contrôlée */
+    text-align: left;
+    display: none;
+    overflow-x: auto; /* Ajout de défilement horizontal si nécessaire */
+}
+
+/* Ajustement pour empêcher le débordement du contenu mathématique */
+.content p, .content h2, .content h3 {
+    max-width: 100%; /* Limiter la largeur à 100% du conteneur parent */
+    overflow-wrap: break-word; /* Assure que le texte se coupe correctement */
+}
+
+    </style>
+</head>
+<body>
+    <h1>Computing Moment Cones</h1>
+    <div class="main-container">
+        <div class="drawings">
+            <canvas id="polytopeCanvas"></canvas>
+            <div class="diagramme"><div></div><div></div><div></div><div></div>
+            <div></div><div></div><div class="empty"></div><div class="empty"></div>
+            <div></div><div class="empty"></div><div class="empty"></div><div class="empty"></div></div>
+        </div>
+        <div class="ordinateur">
+            <div class="ecran"></div>
+        </div>
+    </div>
+    <script>
+        const scene = new THREE.Scene();
+        const camera = new THREE.PerspectiveCamera(75, 1, 0.1, 1000);
+        const renderer = new THREE.WebGLRenderer({ canvas: document.getElementById("polytopeCanvas"), alpha: true });
+        renderer.setSize(200, 200);
+        
+    const geometry = new THREE.DodecahedronGeometry();
+        const material = new THREE.MeshPhongMaterial({ color: 0x007bff, transparent: true, opacity: 0.5, wireframe: false });
+        const polytope = new THREE.Mesh(geometry, material);
+        scene.add(polytope);
+        
+        const light = new THREE.PointLight(0xffffff, 1, 100);
+        light.position.set(5, 5, 5);
+        scene.add(light);
+        
+        camera.position.z = 3;
+        
+        function animate() {
+            requestAnimationFrame(animate);
+            polytope.rotation.x += 0.01;
+            polytope.rotation.y += 0.01;
+            renderer.render(scene, camera);
+        }
+        animate();
+    </script>
+
+    <!-- Texte explicatif -->
+    <hr>
+    <div class="explanatory-text">
+        <p>This is a SageMath package for computing the Kronecker and fermionic moment cones implementing the algorithm proposed by <a href="https://perso.univ-st-etienne.fr/bm29130h/pageperso/"target="_blank"> Bulois  </a>, Denis and <a href="https://math.univ-lyon1.fr/~ressayre/"
+            target="_blank"> Ressayre</a> in <i>An Algorithm to compute the Kronecker cone and other moment cones (2025)</i>.
+            See <a href="https://arxiv" target="_blank">paper</a>.</p>
+        <p>These cones are rational polyhedral cones, and the program computes the minimal list of inequalities for them.</p>
+        <p>By plugging the outputs of our program into <a href="https://www.normaliz.uni-osnabrueck.de" target="_blank">Normaliz</a>, 
+            one can get the rays of these cones or the Hilbert bases of integral points.</p>
+    
+
+    
+    <!-- Boutons pour le contenu dynamique -->
+    <div class="button-container">
+        <button class="button" onclick="showContent('math')">Mathematical Presentation</button>
+        <button class="button" onclick="showContent('code')">Source Code</button>
+        <button class="button" onclick="showContent('outputs')">Outputs</button>
+        <button class="button" onclick="showContent('docs')">Documentation</button>
+    </div>
+
+<!-- Contenu affiché dynamiquement -->
+    <div id="content" class="content"></div>
+ </div>
+
+    <script>
+    
+   function showContent(type) {
+    let contentDiv = document.getElementById("content");
+    contentDiv.style.display = "block";
+
+    if (type === 'math') {
+        contentDiv.innerHTML = `
+            <h2>Mathematical Presentation</h2>
+            <p>The Kronecker cone has several interpretations that we recall below.</p>
+            
+            <h3>In Representation Theory</h3>
+            
+            <p> Given \\(s\\) partitions \\(\\lambda_0,\\dots,\\lambda_{s-1}\\) of the same integer \\(n\\), we denote by 
+            \\(g_{\\lambda_0,\\dots,\\lambda_{s-1}}\\) the multiple 
+            <a href="https://en.wikipedia.org/wiki/Kronecker_coefficient" target="_blank">Kronecker 
+                coefficient</a>, that is:</p>
+            $$ 
+            g_{\\lambda_1,\\lambda_2,\\dots,\\lambda_s}=\\dim\\bigg(
+            ([\\lambda_1]\\otimes [\\lambda_2]\\otimes\\cdots\\otimes[\\lambda_s])^{S_n}
+            \\bigg)
+            $$ 
+            where \\([\\lambda_i]\\) is the Spetch irreducible \\(S_n\\)-module.
+
+Fix positive integers \\(\\underline{d}=(d_0,\\dots,d_{s-1})\\). Consider
+   $$
+Kron(\\underline{d})=
+\\left\\{(\\lambda_1,\\dots,\\lambda_s) :
+\\begin{array}{l}
+\\lambda_i \\mbox{
+  are partitions such that}\\
+\\ell(\\lambda_i)\\leq d_i, \\mbox{ and }\\exists k>0\\quad g_{k\\lambda_0,\\dots,k\\lambda_{s-1}}\\neq 0
+\\end{array}
+\\right\\}. 
+$$
+
+So, the Kronecker cone is the asymptotic support of the Kronecker coefficients. 
+
+            <h3>As a moment cone</h3>
+            <p>Let \\(V_i\\) be a \\(d_i\\)-dimensional complex vector space. 
+                Then, \\(Kron(\\underline{d})\\) is the moment cone for the action of 
+            \\(\\prod_i GL(V_i)\\) on \\(V_0\\otimes\\cdots\\otimes V_{s-1}\\).</p>
+
+            <p>If we endow each \\(V_i\\) with an Hermitian inner product, it idenfies 
+                with  the intersection of the dominant chamber and the image of the moment map 
+                for the action of \\(\\prod_i U(V_i)\\).
+            </p>
+
+            <h3>In terms of eigenvalues</h3>
+
+            <p>For each \\(i\\), fix an Hermitian space \\(H_i\\) of dimension \\(d_i\\). 
+                Let \\(\\operatorname{Herm}(H_i)\\) denote the space of Hermitian endomorphisms. 
+            Given an Hermitian endomorphism \\(A\\), denote by \\(\\lambda_A\\) its spectrum 
+            (which is real) ordered in nonincreasing order (and with multiplicities). </p>
+            
+            
+<p>Consider now, \\(H=H_0\\otimes\\cdots\\otimes H_{s-1}\\). Let \\(A\\in {\\operatorname{Herm}}(H)\\). 
+Note that </p>
+$$
+\\begin{array}{cl}
+{\\operatorname{End}}(H)&=\\bigotimes_{i=0}^{s-1} H_i^*\\otimes H_i\\
+  &={\\operatorname{Hom}}(H_0^*\\otimes H_0,\\bigotimes_{i=1}^{s-1} H_i^*\\otimes H_i).
+\\end{array}
+$$
+<p>
+Moreover, the trace gives a \\(GL(H_i)\\)-invariant map \\(tr_i:H_i^*\\otimes H_i={\\operatorname{End}}(H_i)
+\\longrightarrow{\\mathbb C}\\). 
+And similarly, a map \\({\\operatorname{Tr}}:\\bigotimes_{i=1}^{s-1} H_i^*\\otimes H_i\\longrightarrow{\\mathbb C}\\). 
+By composition, we get a \\(\\prod_i GL(V_i)\\)-equivariant map</p>
+$$
+{\\operatorname{End}}(H)\\longrightarrow {\\operatorname{End}}(H_0), A\\longmapsto A_0,
+$$
+<p>
+using the \\(GL(H_0)\\)-equivariant isomorphism 
+\\(\\operatorname{End}(H_0)^*\\simeq\\operatorname{End}(H_0)\\).
+Moreover, this map maps Hermitian endomorphism on Hermitian endomorphisms. 
+Defining, similarly \\(A_i\\) for each \\(i\\), one gets the moment map</p>
+
+            $$ \\Phi :\\operatorname{End}(H)\\longrightarrow \\prod_i\\operatorname{End}(H_i), A\\longmapsto (A_0,\\dots,A_{s-1}). $$
+<p>Let \\(\\operatorname{Herm}^{\\operatorname{rk}=1}(H)\\) denote the set of Hermitian endomorphisms of rank one. 
+Then, Kron describes</p> 
+$$
+\\Phi(\\operatorname{Herm}^{\\operatorname{rk}=1}(H))
+$$
+<p>
+in the sense that \\((A_0,\\dots,A_{s-1})\\) belongs to this image if and only if</p>
+$$
+(\\lambda_{A_0},\\dots,\\lambda_{A_{s-1}})\\in Kron(\\underline{d}).
+$$
+        `;
+    }
+    else if (type === 'code') {
+                contentDiv.innerHTML = "<h2>Source Code</h2><p>Source code available <a href='https://github.com/ea-icj/moment_cone'>here</a>.</p>";
+    }
+    else if (type === 'outputs') {
+        contentDiv.innerHTML = "<h2>Outputs</h2><p>Program outputs will be displayed here.</p>";
+    }
+    else if (type === 'docs') {
+        contentDiv.innerHTML = "<h2>Documentation</h2><p>Documentation details will be shown here.</p>";
+    }
+
+    MathJax.typesetPromise();
+}
+</script>
+
+<!-- Script pour afficher le contenu dynamiquement -->
+
+    <div class="logos">
+        <img src="LogoLyon1Off_CoulCmjn300dpi.jpg" alt="Université Lyon 1">
+        <img src="LOGO_CNRS_BLEU.png" alt="CNRS">
+        <img src="Logo_ICJ_pour-bandeau.png" alt="ICJ">
+        <img src="UJM-LOGO-NOIR.png" alt="Université Jean Monnet">
+    </div>
+
+    
+</body>
+</html>
