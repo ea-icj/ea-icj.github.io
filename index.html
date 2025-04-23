@@ -318,15 +318,77 @@ function showContent(type) {
             contentDiv.innerHTML = data;
             contentDiv.style.display = "block";
 
-            // Re-render MathJax (v3)
+            // Re-render MathJax (v3) if needed
             if (window.MathJax && MathJax.typesetPromise) {
                 MathJax.typesetPromise([contentDiv]).catch(function (err) {
                     console.error("MathJax typeset failed:", err);
                 });
             }
+
+            // Load table if this is the outputs section
+            if (type === "outputs" && typeof loadFileTable === "function") {
+                loadFileTable();
+            }
+
         })
         .catch(error => {
             contentDiv.innerHTML = `<p>Error loading content: ${error.message}</p>`;
+        });
+}
+
+</script>
+
+
+<!--<button onclick="loadFileTable()">Show File Table</button>
+<div id="tableContainer"></div>-->
+
+<script>
+function loadFileTable() {
+    fetch('file_list.json')
+        .then(response => response.json())
+        .then(data => {
+            const table = document.createElement('table');
+            table.border = 1;
+
+            // Add table headers
+            const header = table.insertRow();
+            header.insertCell().textContent = "Case";
+            header.insertCell().textContent = "Python";
+            header.insertCell().textContent = "Normaliz";
+            header.insertCell().textContent = ".pdf";
+
+            // Iterate over each folder in the data
+            for (const folder in data) {
+                const row = table.insertRow();
+                row.insertCell().textContent = folder; // Folder column
+
+                // For each folder, check for the presence of specific files
+                const baseFileNames = ['ineq']; // You can extend this array to add more base file names if needed
+
+                // Loop through base file names (e.g., file.py, file.in, file.pdf)
+                ['py', 'in', 'pdf'].forEach(ext => {
+                    const cell = row.insertCell();
+                    const matchingFile = data[folder].find(file => file.startsWith(baseFileNames[0]) && file.endsWith(`.${ext}`));
+                    if (matchingFile) {
+                        const link = document.createElement('a');
+                        link.href = `datas/${folder}/${matchingFile}`;
+                        const formattedText = `Result.${ext}`; // e.g., Result.py, Result.in, Result.pdf
+                        link.textContent = formattedText;
+                        link.target = "_blank";
+                        cell.appendChild(link);
+                    } else {
+                        cell.textContent = "-"; // If the file doesn't exist, put a dash
+                    }
+                });
+            }
+
+            // Clear previous content and append the new table
+            document.getElementById("tableContainer").innerHTML = "";
+            document.getElementById("tableContainer").appendChild(table);
+        })
+        .catch(err => {
+            document.getElementById("tableContainer").textContent = "Error loading table.";
+            console.error(err);
         });
 }
 </script>

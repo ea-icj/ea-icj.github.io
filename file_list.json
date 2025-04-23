@@ -1,0 +1,5 @@
+{
+  "Kron-3-3-3": ["ineq_Python-3-3-3-1 kron .py","ineq_Normaliz-3-3-3-1 KroneckerRepresentation .in", "ineq_Latex-3-3-3-1 kron .pdf"],
+  "Kron-4-4-4": ["ineq_Latex-4-4-4-1 KroneckerRepresentation .pdf","ineq_Normaliz-4-4-4-1_KroneckerRepresentation.in", "ineq_Python-4-4-4-1_KroneckerRepresentation.py"]
+}
+
