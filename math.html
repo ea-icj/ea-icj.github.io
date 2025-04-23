@@ -1,0 +1,82 @@
+<h2>Mathematical Presentation</h2>
+            <p>The Kronecker cone has several interpretations that we recall below.</p>
+            
+            <h3>In Representation Theory</h3>
+            
+            <p> Given \\(s\\) partitions \\(\\lambda_0,\\dots,\\lambda_{s-1}\\) of the same integer \\(n\\), we denote by 
+            \\(g_{\\lambda_0,\\dots,\\lambda_{s-1}}\\) the multiple 
+            <a href="https://en.wikipedia.org/wiki/Kronecker_coefficient" target="_blank">Kronecker 
+                coefficient</a>, that is:</p>
+            $$ 
+            g_{\\lambda_1,\\lambda_2,\\dots,\\lambda_s}=\\dim\\bigg(
+            ([\\lambda_1]\\otimes [\\lambda_2]\\otimes\\cdots\\otimes[\\lambda_s])^{S_n}
+            \\bigg)
+            $$ 
+            where \\([\\lambda_i]\\) is the Spetch irreducible \\(S_n\\)-module.
+
+Fix positive integers \\(\\underline{d}=(d_0,\\dots,d_{s-1})\\). Consider
+   $$
+Kron(\\underline{d})=
+\\left\\{(\\lambda_1,\\dots,\\lambda_s) :
+\\begin{array}{l}
+\\lambda_i \\mbox{
+  are partitions such that}\\
+\\ell(\\lambda_i)\\leq d_i, \\mbox{ and }\\exists k>0\\quad g_{k\\lambda_0,\\dots,k\\lambda_{s-1}}\\neq 0
+\\end{array}
+\\right\\}. 
+$$
+
+So, the Kronecker cone is the asymptotic support of the Kronecker coefficients. 
+
+            <h3>As a moment cone</h3>
+            <p>Let \\(V_i\\) be a \\(d_i\\)-dimensional complex vector space. 
+                Then, \\(Kron(\\underline{d})\\) is the moment cone for the action of 
+            \\(\\prod_i GL(V_i)\\) on \\(V_0\\otimes\\cdots\\otimes V_{s-1}\\).</p>
+
+            <p>If we endow each \\(V_i\\) with an Hermitian inner product, it idenfies 
+                with  the intersection of the dominant chamber and the image of the moment map 
+                for the action of \\(\\prod_i U(V_i)\\).
+            </p>
+
+            <h3>In terms of eigenvalues</h3>
+
+            <p>For each \\(i\\), fix an Hermitian space \\(H_i\\) of dimension \\(d_i\\). 
+                Let \\(\\operatorname{Herm}(H_i)\\) denote the space of Hermitian endomorphisms. 
+            Given an Hermitian endomorphism \\(A\\), denote by \\(\\lambda_A\\) its spectrum 
+            (which is real) ordered in nonincreasing order (and with multiplicities). </p>
+            
+            
+<p>Consider now, \\(H=H_0\\otimes\\cdots\\otimes H_{s-1}\\). Let \\(A\\in {\\operatorname{Herm}}(H)\\). 
+Note that </p>
+$$
+\\begin{array}{cl}
+{\\operatorname{End}}(H)&=\\bigotimes_{i=0}^{s-1} H_i^*\\otimes H_i\\
+  &={\\operatorname{Hom}}(H_0^*\\otimes H_0,\\bigotimes_{i=1}^{s-1} H_i^*\\otimes H_i).
+\\end{array}
+$$
+<p>
+Moreover, the trace gives a \\(GL(H_i)\\)-invariant map \\(tr_i:H_i^*\\otimes H_i={\\operatorname{End}}(H_i)
+\\longrightarrow{\\mathbb C}\\). 
+And similarly, a map \\({\\operatorname{Tr}}:\\bigotimes_{i=1}^{s-1} H_i^*\\otimes H_i\\longrightarrow{\\mathbb C}\\). 
+By composition, we get a \\(\\prod_i GL(V_i)\\)-equivariant map</p>
+$$
+{\\operatorname{End}}(H)\\longrightarrow {\\operatorname{End}}(H_0), A\\longmapsto A_0,
+$$
+<p>
+using the \\(GL(H_0)\\)-equivariant isomorphism 
+\\(\\operatorname{End}(H_0)^*\\simeq\\operatorname{End}(H_0)\\).
+Moreover, this map maps Hermitian endomorphism on Hermitian endomorphisms. 
+Defining, similarly \\(A_i\\) for each \\(i\\), one gets the moment map</p>
+
+            $$ \\Phi :\\operatorname{End}(H)\\longrightarrow \\prod_i\\operatorname{End}(H_i), A\\longmapsto (A_0,\\dots,A_{s-1}). $$
+<p>Let \\(\\operatorname{Herm}^{\\operatorname{rk}=1}(H)\\) denote the set of Hermitian endomorphisms of rank one. 
+Then, Kron describes</p> 
+$$
+\\Phi(\\operatorname{Herm}^{\\operatorname{rk}=1}(H))
+$$
+<p>
+in the sense that \\((A_0,\\dots,A_{s-1})\\) belongs to this image if and only if</p>
+$$
+(\\lambda_{A_0},\\dots,\\lambda_{A_{s-1}})\\in Kron(\\underline{d}).
+$$
+
