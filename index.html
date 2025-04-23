@@ -6,7 +6,13 @@
     <title>Kronecker and Moment Cones</title>
     <script src="https://cdnjs.cloudflare.com/ajax/libs/three.js/r128/three.min.js"></script>
 <script src="https://polyfill.io/v3/polyfill.min.js?features=es6"></script>
-<script id="MathJax-script" async src="https://cdn.jsdelivr.net/npm/mathjax@3/es5/tex-mml-chtml.js"></script>
+<script>
+  window.MathJax = {
+    tex: { inlineMath: [['\\(', '\\)'], ['$', '$']] },
+    svg: { fontCache: 'global' }
+  };
+</script>
+<script src="https://cdn.jsdelivr.net/npm/mathjax@3/es5/tex-svg.js" async></script>
 
     <style>
         p {
@@ -296,20 +302,28 @@ function showContent(type) {
 
     const file = fileMap[type];
 
-    fetch(file)
-        .then(response => {
-            if (!response.ok) {
-                throw new Error("Network response was not ok");
-            }
-            return response.text();
-        })
-        .then(data => {
-            contentDiv.innerHTML = data;
-            contentDiv.style.display = "block";
-        })
-        .catch(error => {
-            contentDiv.innerHTML = `<p>Error loading content: ${error.message}</p>`;
-        });
+  fetch(file)
+    .then(response => {
+        if (!response.ok) {
+            throw new Error("Network response was not ok");
+        }
+        return response.text();
+    })
+    .then(data => {
+        contentDiv.innerHTML = data;
+        contentDiv.style.display = "block";
+
+        // Re-render MathJax
+        if (window.MathJax) {
+            MathJax.typesetPromise([contentDiv]).catch(function (err) {
+                console.error("MathJax typeset failed:", err);
+            });
+        }
+    })
+    .catch(error => {
+        contentDiv.innerHTML = `<p>Error loading content: ${error.message}</p>`;
+    });
+
 }
 </script>
 
