@@ -358,7 +358,7 @@ function loadFileTable() {
             header.insertCell().textContent = "Normaliz (out)";
             header.insertCell().textContent = ".tex";
             header.insertCell().textContent = ".pdf";
-
+            header.insertCell().textContent = "number of ineq";
             // Iterate over each folder in the data
             for (const folder in data) {
                 const row = table.insertRow();
@@ -370,7 +370,7 @@ function loadFileTable() {
                 // Loop through base file names (e.g., file.py, file.in, file.out, file.tex, file.pdf)
                 ['py', 'in', 'out','tex','pdf'].forEach(ext => {
                     const cell = row.insertCell();
-                    const matchingFile = data[folder].find(file => file.startsWith(baseFileNames[0]) && file.endsWith(`.${ext}`));
+                    const matchingFile = data[folder].files.find(file => file.startsWith(baseFileNames[0]) && file.endsWith(`.${ext}`));
                     if (matchingFile) {
                         const link = document.createElement('a');
                         link.href = `datas/${folder}/${matchingFile}`;
@@ -382,6 +382,11 @@ function loadFileTable() {
                         cell.textContent = "-"; // If the file doesn't exist, put a dash
                     }
                 });
+                const cell = row.insertCell();
+                const number_of_ineq=data[folder].ni;
+                const info = document.createElement('a');
+                info.textContent = number_of_ineq;
+                cell.appendChild(info);
             }
 
             // Clear previous content and append the new table
