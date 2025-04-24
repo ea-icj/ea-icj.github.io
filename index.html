@@ -354,7 +354,9 @@ function loadFileTable() {
             const header = table.insertRow();
             header.insertCell().textContent = "Case";
             header.insertCell().textContent = "Python";
-            header.insertCell().textContent = "Normaliz";
+            header.insertCell().textContent = "Normaliz (in)";
+            header.insertCell().textContent = "Normaliz (out)";
+            header.insertCell().textContent = ".tex";
             header.insertCell().textContent = ".pdf";
 
             // Iterate over each folder in the data
@@ -365,14 +367,14 @@ function loadFileTable() {
                 // For each folder, check for the presence of specific files
                 const baseFileNames = ['ineq']; // You can extend this array to add more base file names if needed
 
-                // Loop through base file names (e.g., file.py, file.in, file.pdf)
-                ['py', 'in', 'pdf'].forEach(ext => {
+                // Loop through base file names (e.g., file.py, file.in, file.out, file.tex, file.pdf)
+                ['py', 'in', 'out','tex','pdf'].forEach(ext => {
                     const cell = row.insertCell();
                     const matchingFile = data[folder].find(file => file.startsWith(baseFileNames[0]) && file.endsWith(`.${ext}`));
                     if (matchingFile) {
                         const link = document.createElement('a');
                         link.href = `datas/${folder}/${matchingFile}`;
-                        const formattedText = `Result.${ext}`; // e.g., Result.py, Result.in, Result.pdf
+                        const formattedText = `Result.${ext}`; // e.g., Result.py, Result.in,Result.out,Result.tex, Result.pdf
                         link.textContent = formattedText;
                         link.target = "_blank";
                         cell.appendChild(link);
