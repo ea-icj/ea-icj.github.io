@@ -1,7 +1,8 @@
 {
-  "Kron-3-3-3": ["ineq_Python-3-3-3-1 kron .py","ineq_Normaliz-3-3-3-1 KroneckerRepresentation .in", "ineq_Latex-3-3-3-1 kron .pdf"],
-  "Kron-4-3-3": ["ineq_Latex-4-3-3-1_KroneckerRepresentation.pdf","ineq_Normaliz-4-3-3-1_KroneckerRepresentation.in", "ineq_Python-4-3-3-1_KroneckerRepresentation.py"],
-  "Kron-4-4-4": ["ineq_Latex-4-4-4-1_KroneckerRepresentation.pdf","ineq_Normaliz-4-4-4-1_KroneckerRepresentation.in", "ineq_Python-4-4-4-1_KroneckerRepresentation.py"],
+  "Kron-3-3-3":  ["ineq_Latex-3-3-3-1_KroneckerRepresentation.tex","ineq_Latex-3-3-3-1_KroneckerRepresentation.pdf","ineq_Normaliz-3-3-3-1_KroneckerRepresentation.in","ineq_Normaliz-3-3-3-1_KroneckerRepresentation.out", "ineq_Python-3-3-3-1_KroneckerRepresentation.py"],
+  "Kron-4-3-3": ["ineq_Latex-4-3-3-1_KroneckerRepresentation.tex","ineq_Latex-4-3-3-1_KroneckerRepresentation.pdf","ineq_Normaliz-4-3-3-1_KroneckerRepresentation.in","ineq_Normaliz-4-3-3-1_KroneckerRepresentation.out", "ineq_Python-4-3-3-1_KroneckerRepresentation.py"],
+  "Kron-4-4-3": ["ineq_Latex-4-4-3-1_KroneckerRepresentation.tex","ineq_Latex-4-4-3-1_KroneckerRepresentation.pdf","ineq_Normaliz-4-4-3-1_KroneckerRepresentation.in","ineq_Normaliz-4-4-3-1_KroneckerRepresentation.out", "ineq_Python-4-4-3-1_KroneckerRepresentation.py"],
+  "Kron-4-4-4": ["ineq_Latex-4-4-4-1_KroneckerRepresentation.tex","ineq_Latex-4-4-4-1_KroneckerRepresentation.pdf","ineq_Normaliz-4-4-4-1_KroneckerRepresentation.in","ineq_Normaliz-4-4-4-1_KroneckerRepresentation.out", "ineq_Python-4-4-4-1_KroneckerRepresentation.py"],
   "Kron-5-4-4": ["ineq_Latex-5-4-4-1_KroneckerRepresentation.pdf","ineq_Normaliz-5-4-4-1_KroneckerRepresentation.in", "ineq_Python-5-4-4-1_KroneckerRepresentation.py"],
   "Kron-5-5-5": ["ineq_Latex-5-5-5-1_KroneckerRepresentation.pdf","ineq_Normaliz-5-5-5-1_KroneckerRepresentation.in", "ineq_Python-5-5-5-1_KroneckerRepresentation.py"],
   "Kron-6-5-5": ["ineq_Latex-6-5-5-1_KroneckerRepresentation.pdf","ineq_Normaliz-6-5-5-1_KroneckerRepresentation.in", "ineq_Python-6-5-5-1_KroneckerRepresentation.py"],
