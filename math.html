@@ -23,7 +23,7 @@ Kron(\underline{d})=
 \left\{(\lambda_1,\dots,\lambda_s) :
 \begin{array}{l}
 \lambda_i \mbox{
-  are partitions such that}\
+  are rational partitions such that}\
 \ell(\lambda_i)\leq d_i, \mbox{ and }\exists k>0\quad g_{k\lambda_0,\dots,k\lambda_{s-1}}\neq 0
 \end{array}
 \right\}. 
@@ -45,7 +45,7 @@ So, the Kronecker cone is the asymptotic support of the Kronecker coefficients.
 
             <p>For each $i$, fix an Hermitian space $H_i$ of dimension $d_i$. 
                 Let $\operatorname{Herm}(H_i)$ denote the space of Hermitian endomorphisms. 
-            Given an Hermitian endomorphism $A$, denote by $\lambda_A$ its spectrum 
+            Given an Hermitian endomorphism $A$, denote by $\lambda(A)$ its spectrum 
             (which is real) ordered in nonincreasing order (and with multiplicities). </p>
             
             
@@ -71,15 +71,8 @@ $\operatorname{End}(H_0)^*\simeq\operatorname{End}(H_0)$.
 Moreover, this map maps Hermitian endomorphism on Hermitian endomorphisms. 
 Defining, similarly $A_i$ for each $i$, one gets the moment map</p>
 
-            $$ \Phi :\operatorname{End}(H)\longrightarrow \prod_i\operatorname{End}(H_i), A\longmapsto (A_0,\dots,A_{s-1}). $$
-<p>Let $\operatorname{Herm}^{\operatorname{rk}=1}(H)$ denote the set of Hermitian endomorphisms of rank one. 
-Then, Kron describes</p> 
-$$
-\Phi(\operatorname{Herm}^{\operatorname{rk}=1}(H))
-$$
+            $$ \Phi :\operatorname{End}(H)\longrightarrow \prod_i\operatorname{End}(H_i), A\longmapsto (\lambda(A_0),\dots,\lambda(A_{s-1})). $$
 <p>
-in the sense that $(A_0,\dots,A_{s-1})$ belongs to this image if and only if</p>
-$$
-(\lambda_{A_0},\dots,\lambda_{A_{s-1}})\in Kron(\underline{d}).
-$$
+Then, the image of $\Phi$ is the closure in ${\mathbb R}^{\sum d_i}$ of Kron$(\underline{d})$.</p> 
+
 
