@@ -278,7 +278,7 @@ body {
     <div class="explanatory-text">
         <p>This is a SageMath package for computing the Kronecker and fermionic moment cones implementing the algorithm proposed by <a href="https://perso.univ-st-etienne.fr/bm29130h/pageperso/"target="_blank">Bulois</a>, Denis and <a href="https://math.univ-lyon1.fr/~ressayre/"
             target="_blank"> Ressayre</a> in <i>An Algorithm to compute the Kronecker cone and other moment cones (2025)</i>.
-            See <a href="https://arxiv" target="_blank">paper</a>.</p>
+            See <a href="https://arxiv.org/abs/2505.08812" target="_blank">paper</a>.</p>
         <p>These cones are rational polyhedral cones, and the program computes the minimal list of inequalities for them.</p>
         <p>By plugging the outputs of our program into <a href="https://www.normaliz.uni-osnabrueck.de" target="_blank">Normaliz</a>, 
             one can get the rays of these cones or the Hilbert bases of integral points.</p>
@@ -353,11 +353,11 @@ function loadFileTable() {
             // Add table headers
             const header = table.insertRow();
             header.insertCell().textContent = "Case";
-            header.insertCell().textContent = "Python";
+            header.insertCell().textContent = "Python     ";
             header.insertCell().textContent = "Normaliz (in)";
             header.insertCell().textContent = "Normaliz (out)";
-            header.insertCell().textContent = ".tex";
-            header.insertCell().textContent = ".pdf";
+            header.insertCell().textContent = ".tex       ";
+            header.insertCell().textContent = ".pdf       ";
             header.insertCell().textContent = "number of ineq";
             // Iterate over each folder in the data
             for (const folder in data) {
