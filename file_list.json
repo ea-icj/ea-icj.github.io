@@ -4,9 +4,9 @@
   "Kron-4-4-3": { "files": ["ineq_Latex-4-4-3-1_KroneckerRepresentation.tex","ineq_Latex-4-4-3-1_KroneckerRepresentation.pdf","ineq_Normaliz-4-4-3-1_KroneckerRepresentation.in","ineq_Normaliz-4-4-3-1_KroneckerRepresentation.out", "ineq_Python-4-4-3-1_KroneckerRepresentation.py"],"ni": "72" },
   "Kron-4-4-4": { "files": ["ineq_Latex-4-4-4-1_KroneckerRepresentation.tex","ineq_Latex-4-4-4-1_KroneckerRepresentation.pdf","ineq_Normaliz-4-4-4-1_KroneckerRepresentation.in","ineq_Normaliz-4-4-4-1_KroneckerRepresentation.out", "ineq_Python-4-4-4-1_KroneckerRepresentation.py"],"ni": "47" },
   "Kron-5-4-4": { "files": ["ineq_Latex-5-4-4-1_KroneckerRepresentation.tex","ineq_Latex-5-4-4-1_KroneckerRepresentation.pdf","ineq_Normaliz-5-4-4-1_KroneckerRepresentation.in","ineq_Normaliz-5-4-4-1_KroneckerRepresentation.out", "ineq_Python-5-4-4-1_KroneckerRepresentation.py"],"ni": "339" },
-  "Kron-5-5-4": { "files": ["ineq_Latex-5-5-4-1_KroneckerRepresentation.tex","ineq_Latex-5-5-4-1_KroneckerRepresentation.pdf","ineq_Normaliz-5-5-4-1_KroneckerRepresentation.in", "ineq_Python-5-5-4-1_KroneckerRepresentation.py"],"ni": "714" },
+  "Kron-5-5-4": { "files": ["ineq_Latex-5-5-4-1_KroneckerRepresentation.tex","ineq_Latex-5-5-4-1_KroneckerRepresentation.pdf","ineq_Normaliz-5-5-4-1_KroneckerRepresentation.in", "ineq_Normaliz-5-5-4-1_KroneckerRepresentation.out", "ineq_Python-5-5-4-1_KroneckerRepresentation.py"],"ni": "714" },
   "Kron-5-5-5": { "files":
-  ["ineq_Latex-5-5-5-1_KroneckerRepresentation.tex","ineq_Latex-5-5-5-1_KroneckerRepresentation.pdf","ineq_Normaliz-5-5-5-1_KroneckerRepresentation.in", "ineq_Python-5-5-5-1_KroneckerRepresentation.py"],"ni": "462" },
+  ["ineq_Latex-5-5-5-1_KroneckerRepresentation.tex","ineq_Latex-5-5-5-1_KroneckerRepresentation.pdf","ineq_Normaliz-5-5-5-1_KroneckerRepresentation.in", "ineq_Normaliz-5-5-5-1_KroneckerRepresentation.out", "ineq_Python-5-5-5-1_KroneckerRepresentation.py"],"ni": "462" },
   "Kron-6-5-5": { "files":
   ["ineq_Latex-6-5-5-1_KroneckerRepresentation.pdf","ineq_Normaliz-6-5-5-1_KroneckerRepresentation.in", "ineq_Python-6-5-5-1_KroneckerRepresentation.py"], "ni": "3482?" },
   "Fermion-7-3": { "files":
