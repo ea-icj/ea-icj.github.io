@@ -8,17 +8,17 @@
   "Kron-5-5-5": { "files":
   ["ineq_Latex-5-5-5-1_KroneckerRepresentation.tex","ineq_Latex-5-5-5-1_KroneckerRepresentation.pdf","ineq_Normaliz-5-5-5-1_KroneckerRepresentation.in", "ineq_Normaliz-5-5-5-1_KroneckerRepresentation.out", "ineq_Python-5-5-5-1_KroneckerRepresentation.py"],"ni": "462" },
   "Kron-6-5-5": { "files":
-  ["ineq_Latex-6-5-5-1_KroneckerRepresentation.pdf","ineq_Normaliz-6-5-5-1_KroneckerRepresentation.in", "ineq_Python-6-5-5-1_KroneckerRepresentation.py"], "ni": "3 482" },
+  ["ineq_Latex-5-5-5-1_KroneckerRepresentation.tex","ineq_Latex-6-5-5-1_KroneckerRepresentation.pdf","ineq_Normaliz-6-5-5-1_KroneckerRepresentation.in", "ineq_Python-6-5-5-1_KroneckerRepresentation.py"], "ni": "3 482" },
   "Kron-6-6-5": { "files":
   [], "ni": "???" },
   "Kron-6-6-6": { "files":
-  ["ineq_Python-6-6-6-1_KroneckerRepresentation.py"], "ni": "5 333" },
+  ["ineq_Latex-6-6-6-1_KroneckerRepresentation.tex", "ineq_Python-6-6-6-1_KroneckerRepresentation.py", "ineq_Normaliz-6-6-6-1_KroneckerRepresentation.in"], "ni": "5 333" },
   "Kron-7-6-6": { "files":
-  ["ineq_Python-7-6-6-1_KroneckerRepresentation.py"], "ni": "42 210" },
+  ["ineq_Python-7-6-6-1_KroneckerRepresentation.py", "ineq_Normaliz-7-6-6-1_KroneckerRepresentation.in"], "ni": "42 210" },
   "Kron-7-7-6": { "files":
-  ["ineq_Python-7-7-6-1_KroneckerRepresentation.py"], "ni": "96 338" },
+  ["ineq_Python-7-7-6-1_KroneckerRepresentation.py", "ineq_Normaliz-7-7-6-1_KroneckerRepresentation.in"], "ni": "96 338" },
   "Kron-7-7-7": { "files":
-  ["ineq_Python-7-7-7-1_KroneckerRepresentation.py"], "ni": "64 792" },
+  ["ineq_Python-7-7-7-1_KroneckerRepresentation.py", "ineq_Normaliz-7-7-7-1_KroneckerRepresentation.in"], "ni": "64 792" },
   "Fermion-7-3": { "files":
   ["ineq_Latex-7_FermionRepresentation_3.tex","ineq_Latex-7_FermionRepresentation_3.pdf","ineq_Normaliz-7_FermionRepresentation_3.in", "ineq_Normaliz-7_FermionRepresentation_3.out", "ineq_Python-7_FermionRepresentation_3.py"], "ni": "4" },
   "Fermion-8-3": { "files":
