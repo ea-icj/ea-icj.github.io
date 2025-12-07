@@ -32,6 +32,11 @@
   "Fermion-10-3": { "files":
   ["ineq_Latex-10_FermionRepresentation_3.tex","ineq_Latex-10_FermionRepresentation_3.pdf","ineq_Normaliz-10_FermionRepresentation_3.in", "ineq_Normaliz-10_FermionRepresentation_3.out", "ineq_Python-10_FermionRepresentation_3.py"], "ni": "94" },
   "Fermion-10-4": { "files":
-  ["ineq_Latex-10_FermionRepresentation_4.tex","ineq_Latex-10_FermionRepresentation_4.pdf","ineq_Normaliz-10_FermionRepresentation_4.in", "ineq_Normaliz-10_FermionRepresentation_4.out","ineq_Python-10_FermionRepresentation_4.py"], "ni": "126" }
+  ["ineq_Latex-10_FermionRepresentation_4.tex","ineq_Latex-10_FermionRepresentation_4.pdf","ineq_Normaliz-10_FermionRepresentation_4.in", "ineq_Normaliz-10_FermionRepresentation_4.out","ineq_Python-10_FermionRepresentation_4.py"], "ni": "126" },
+  "Fermion-10-5": { "files":
+  ["ineq_Latex-10_FermionRepresentation_5.tex","ineq_Latex-10_FermionRepresentation_5.pdf","ineq_Normaliz-10_FermionRepresentation_5.in", "ineq_Normaliz-10_FermionRepresentation_5.out", "ineq_Python-10_FermionRepresentation_5.py"], "ni": "162" },
+  "Fermion-11-3": { "files":
+  ["ineq_Latex-11_FermionRepresentation_3.tex","ineq_Latex-11_FermionRepresentation_3.pdf","ineq_Normaliz-11_FermionRepresentation_3.in", "ineq_Normaliz-11_FermionRepresentation_3.out","ineq_Python-11_FermionRepresentation_3.py"], "ni": "122" }
+
 }
 
