@@ -12,7 +12,7 @@
 <p>The dominance inequalities are not given in these files. </p>
 <p>The number given in the last column of the table presented here is the number of inequalities in these files. </p>
 <br>
-<p> The files <code>.in</code> and <code>.out</code> always contain all the inequalities (full orbits under symmetries for Kron INCLUDING the dominance inequalities in all cases). </p>
+<p> The files <code>.in</code> and <code>.out</code> contain all the inequalities (full orbits under symmetries for Kron) INCLUDING the dominance inequalities in all cases. </p>
 <br>
 <p>
 In the fermionic cases, the only difference between <code>.tex</code>, <code>.pdf</code> and <code>.py</code> on one side and <code>.in</code> and <code>.out</code> on the other side are the dominance inequalities given in the last formats.</p>
@@ -41,7 +41,13 @@ They appear in the different files (last lines) in the following form: </p>
 <table border=1>
     <tr>
         <th><code>.pdf</code></th>
-        <td>$(0, 1, 3, 4, 5, 6)\; (6, 0, 1, 2, 3)\; (6, 5, 3, 0, 1)\; - 12$</td>
+        <td>
+        Inequality: $(0, 1, 3, 4, 5, 6)\; (6, 0, 1, 2, 3)\; (6, 5, 3, 0, 1)\; - 12$
+      <br>
+       <small> $\left( \begin{array}{l}\textrm{ obtained from the dominant 1-PS }\\
+        (6 ,5 ,4 ,3 ,1 ,0) \;(6 ,3 ,2 ,1 ,0) \;(6 ,5 ,3 ,1 ,0) \;-12\\        
+        \textrm{acted upon by }\\ w=\left(\begin{pmatrix}0&1&2&3&4&5\\ 5 &4 &3 &2 &1 &0\end{pmatrix} \;\begin{pmatrix}0&1&2&3&4\\ 0 &4 &3 &2 &1\end{pmatrix} \;\begin{pmatrix}0&1&2&3&4\\ 0 &1 &2 &4 &3\end{pmatrix}\right)\in \mathfrak S_6\times\mathfrak S_5\times\mathfrak S_5 \end{array}\right)$</small>
+      </td> 
     </tr>
     <tr>
         <th><code>.py</code></th>
