@@ -19,6 +19,8 @@
   ["ineq_Python-7-7-6-1_KroneckerRepresentation.py", "ineq_Normaliz-7-7-6-1_KroneckerRepresentation.in"], "ni": "96 338" },
   "Kron-7-7-7": { "files":
   ["ineq_Python-7-7-7-1_KroneckerRepresentation.py", "ineq_Normaliz-7-7-7-1_KroneckerRepresentation.in"], "ni": "64 792" },
+  "Kron-12-4-3": { "files":
+  ["ineq_Latex-12-4-3-1_KroneckerRepresentation.tex", "ineq_Latex-12-4-3-1_KroneckerRepresentation.pdf", "ineq_Python-12-4-3-1_KroneckerRepresentation.py", "ineq_Normaliz-12-4-3-1_KroneckerRepresentation.in"], "ni": "5 230" },
   "Fermion-7-3": { "files":
   ["ineq_Latex-7_FermionRepresentation_3.tex","ineq_Latex-7_FermionRepresentation_3.pdf","ineq_Normaliz-7_FermionRepresentation_3.in", "ineq_Normaliz-7_FermionRepresentation_3.out", "ineq_Python-7_FermionRepresentation_3.py"], "ni": "4" },
   "Fermion-8-3": { "files":
